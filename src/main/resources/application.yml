@@ -7,10 +7,10 @@ spring:
       max-file-size: 500MB
       max-request-size: 500MB
 
-minio:
-  endpoint: http://localhost:9010
-  accessKey: cloud_admin
-  secretKey: cloud_password
-  bucket: evidencias-globais
-app:
-  cloud-url: http://localhost:9080/alerts/sync
+#minio:
+#  endpoint: http://localhost:9010
+#  accessKey: cloud_admin
+#  secretKey: cloud_password
+#  bucket: evidencias-globais
+#app:
+#  cloud-url: http://localhost:9080/alerts/sync

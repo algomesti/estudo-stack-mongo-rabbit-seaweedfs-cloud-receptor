@@ -1,4 +1,4 @@
-package com.algomesti.pocminiocloud.controller;
+package com.algomesti.pocseaweedfs.controller;
 
 import me.desair.tus.server.TusFileUploadService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -35,7 +35,7 @@ public class IngestionController {
         UploadInfo info = tusService.getUploadInfo(request.getRequestURI());
         if (info != null && !info.isUploadInProgress()) {
             log.info(">>> [NUVEM] Entrega concluída! Total: {} bytes", info.getLength());
-            // Aqui entra sua lógica de mover para o MinIO Cloud...
+
         }
     }
 }

@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  # --- AMBIENTE NUVEM (CLOUD) ---
+#  minio-cloud:
+#    image: minio/minio
+#    container_name: minio-cloud
+#    ports:
+#      - "9010:9000" # API
+#      - "9011:9001" # Console
+#    environment:
+#      MINIO_ROOT_USER: cloud_admin
+#      MINIO_ROOT_PASSWORD: cloud_password
+#      MINIO_BROWSER_REDIRECT_URL: "http://localhost:9011"
+#    command: server /data --console-address ":9001"
+#    # Adicionamos um check de saúde para ajudar o setup
+#    healthcheck:
+#      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+#      interval: 5s
+#      timeout: 5s
+#      retries: 5
+#
+#  # --- AUTOMACAO DE BUCKET (CLOUD) ---
+#  minio-setup-cloud:
+#    image: minio/mc
+#    container_name: minio-setup-cloud
+#    depends_on:
+#      minio-cloud:
+#        condition: service_healthy # Só roda quando o MinIO estiver realmente "vivo"
+#    entrypoint: >
+#      /bin/sh -c "
+#      # Alias usando a rede interna do Docker (porta 9000)
+#      until (/usr/bin/mc alias set mcloud http://minio-cloud:9000 cloud_admin cloud_password) do
+#        echo 'Aguardando MinIO Cloud...' && sleep 2;
+#      done;
+#
+#      echo 'Criando bucket...';
+#      /usr/bin/mc mb --ignore-existing mcloud/evidencias-globais;
+#
+#      echo 'Configurando expiração de 30 dias...';
+#      /usr/bin/mc ilm add mcloud/evidencias-globais --expiry-days 30 || echo 'Regra ILM já existe';
+#
+#      echo 'Setup finalizado com sucesso!';
+#      exit 0;
+#      "

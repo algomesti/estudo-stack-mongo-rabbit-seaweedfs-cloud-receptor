@@ -1,4 +1,4 @@
-package com.algomesti.pocminiocloud.dto;
+package com.algomesti.pocseaweedfs.dto;
 
 import lombok.Data;
 import java.time.Instant;

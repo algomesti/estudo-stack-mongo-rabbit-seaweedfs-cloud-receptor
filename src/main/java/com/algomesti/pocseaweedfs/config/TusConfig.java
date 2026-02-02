@@ -1,4 +1,4 @@
-package com.algomesti.pocminiocloud.config;
+package com.algomesti.pocseaweedfs.config;
 
 import me.desair.tus.server.TusFileUploadService;
 import org.springframework.context.annotation.Bean;
